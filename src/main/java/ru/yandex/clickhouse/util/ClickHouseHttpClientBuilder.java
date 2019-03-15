@@ -65,7 +65,8 @@ public class ClickHouseHttpClientBuilder {
           .register("http", PlainConnectionSocketFactory.getSocketFactory());
 
         if (properties.getSsl()) {
-            registry.register("https", new SSLConnectionSocketFactory(getSSLContext()));
+            //registry.register("https", new SSLConnectionSocketFactory(getSSLContext()));
+            registry.register("https", SSLConnectionSocketFactory.getSystemSocketFactory());
         }
 
         //noinspection resource
